@@ -12,9 +12,17 @@ fn main() {
     println!("add = {addition}, sub = {substraction}, multiple = {multiplication}, div = {division}, remainder = {remainder}");
     let bool = true;
     println!("le bool est {bool}");
-
+    //char type
     let c = 'c';
     let b:char = 'C';
     let emoji = '😻';
-    println!("char : {c}, {b}, {emoji}");
+    println!("char : {c}, {b}, {emoji}\n");
+    //tuple type
+    let mut tup: (i32, f32, i8) = (50000, 5.2, 125);
+    let (x, y, z) = tup;
+    println!("Discover tuple type {x} // {y} // {z}");
+    tup.0 = 0;
+    tup.1 -= 0.35;
+    tup.2 %= 2;
+    println!("modify tuple with period(.) : {2} // {0} // {1}", tup.0, tup.1, tup.2);
 }
