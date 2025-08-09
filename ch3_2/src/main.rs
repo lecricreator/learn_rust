@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     let guess:i32 = "-442".parse().expect("Not a number");
     println!("Value is {guess}");
@@ -25,4 +27,34 @@ fn main() {
     tup.1 -= 0.35;
     tup.2 %= 2;
     println!("modify tuple with period(.) : {2} // {0} // {1}", tup.0, tup.1, tup.2);
+    println!("-----------------------------------------------------------------------------------");
+    let mut array = [1, 0, 5, 4];
+    array[1] += 5;
+    println!("Array[0] : {0}\nArray[1] : {1}\nArray[2] : {2}\nArray[3] : {3}", array[0], array[1], array[2], array[3]);
+    println!("----------------------------------------------------------------------------------");
+    let array_same_value = [3; 4];
+    println!("arraySameValue[0] : {0}\narraySameValue[1] : {1}\narraySameValue[2] : {2}\narraySameValue[3] : {3}", array_same_value[0], array_same_value[1], array_same_value[2], array_same_value[3]);
+    println!("----------------------------------------------------------------------------------");
+    let a = [1, 2, 3, 4, 5];
+
+    println!("Please enter an array index.");
+
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Index entered was not a number");
+
+    let element = a[index];
+
+    println!("The value of the element at index {index} is: {element}");
+    println!("----------------------------------------------------------------------------------");
+    let t = ([1; 2], [3; 4]);
+    let (a, b) = t;
+    println!("{}", a[0] + t.1[0]);
 }
