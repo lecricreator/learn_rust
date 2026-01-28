@@ -3,9 +3,10 @@ fn main() {
     learn_references();
     learn_pointer();
     learn_vector();
+    learn_permission();
 }
 
-fn learn_both_return(){
+fn learn_both_return() {
     println!("----------------------------------------------------------------\nBoth return");
     let start = String::from("Helloy /");
     let next = String::from("worldo !!!");
@@ -14,7 +15,7 @@ fn learn_both_return(){
     println!("{}", test);
 }
 
-fn learn_references(){
+fn learn_references() {
     println!("----------------------------------------------------------------\nlearn references");
     let start = String::from("Helloy /");
     let next = String::from("worldo !!!");
@@ -23,26 +24,36 @@ fn learn_references(){
     println!("{}", test);
 }
 
-fn learn_pointer(){
+fn learn_pointer() {
     println!("----------------------------------------------------------------\nlearn pointer");
     let mut x: Box<i32> = Box::new(20);
     let a: i32 = *x;
     *x += 1;
-    println!("pointer value is {}", x);
+    println!("pointer value is {}", a);
 }
 
-fn learn_vector(){
+fn learn_vector() {
     println!("----------------------------------------------------------------\nlearn vector");
     let mut v: Vec<i32> = vec![2, 32, 45];
     v.push(456);
     println!("pointer data is : {}", v[3]);
 }
 
-fn greet_return(p_start: String, p_end: String) -> (String, String){
+fn learn_permission() {
+    println!("------------------------------------------------------\nunderstand permission");
+    let mut v: Vec<i32> = vec![4, 35, 69];
+    let mut num: &i32 = &v[0];
+    println!("first element is {} and second is {}", num, v[1]);
+    v.push(1234);
+    num = &v[3];
+    println!("Third element is {} and fourth is {}", v[2], num);
+}
+
+fn greet_return(p_start: String, p_end: String) -> (String, String) {
     println!("{} {}", p_start, p_end);
     (p_start, p_end)
 }
 
-fn greet_references(p_start: &String, p_end: &String){
+fn greet_references(p_start: &String, p_end: &String) {
     println!("{} {}", p_start, p_end);
 }
